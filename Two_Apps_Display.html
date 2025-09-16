@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .appContainer {
+            margin-bottom: 30px;
+            display: flex; /* Use flexbox to display containers side by side */
+            justify-content: space-between; /* Add space between containers */
+        }
+
+        .appContainer > div {
+            width: 48%; /* Set width for each app container */
+            border: 2px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .appContainer form {
+            margin-bottom: 10px;
+        }
+
+        .appContainer h2 {
+            color: #333;
+        }
+
+        #weatherInfo, #NewsInfo {
+            text-align: left;
+        }
+
+        #weatherInfo p, #NewsInfo p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="appContainer">
+        <div id="weatherContainer">
+            <h2>Weather App</h2>
+            <form>
+                <label for="location_city">Enter City name:</label>
+                <input type="text" id="location_city">
+                <br>
+                <button type="button" onclick="getWeather()">Get Weather</button>
+            </form>
+            <div id="weatherInfo"></div>
+        </div>
+
+        <div id="NewsAppContainer">
+            <h2>News App</h2>
+            <form>
+                <label for="Searchable_Topic">Enter Topic to Search:</label>
+                <input type="text" id="Searchable_Topic">
+                <br>
+                <button type="button" onclick="getNews()">Get News</button>
+            </form>
+            <div id="NewsInfo"></div>
+        </div>
+    </div>
+
+<script>
+    // Weather app script (you can add more scripts for other apps)
+    function getWeather() {
+        var locationCity = document.querySelector('#location_city').value;
+        
+        var combinedLocation =(locationCity);
+    
+        fetchWeatherData(combinedLocation);
+    }
+    
+    function fetchWeatherData(location) {
+        var api_key = 'dbcbd9d8e0f8d74d0f455ad03377d5cb';
+        var geocode_url = `https://api.openweathermap.org/data/2.5/weather?q=${location},US&appid=${api_key}`;
+    
+        fetch(geocode_url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error getting geocode data. HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(geocodeData => {
+                console.log('Geocode Data:', geocodeData);
+    
+                if (geocodeData.coord.lat && geocodeData.coord.lat > 0) {
+                    var weather_url = `https://api.openweathermap.org/data/2.5/weather?q=${location},US&appid=${api_key}&units=imperial`;
+   
+                    return fetch(weather_url);
+                } else {
+                    throw new Error('No coordinates found for the location.');
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error fetching weather data. HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Weather Data:', data);
+                displayWeatherInfo(data);
+            })
+            .catch(error => {
+                console.error('Error:', error.message);
+                displayError(error.message);
+            });
+    }
+    
+    function displayError(errorMessage) {
+        var weatherInfoDiv = document.getElementById('weatherInfo');
+        weatherInfoDiv.innerHTML = `<p>Error: ${errorMessage}</p>`;
+    }
+    
+    function displayWeatherInfo(weatherData) {
+        console.log('Displaying Weather Info:', weatherData);
+        var weatherInfoDiv = document.getElementById('weatherInfo');
+        weatherInfoDiv.innerHTML = '';
+    
+        if (weatherData) {
+            var temperature = weatherData.main.temp;
+            var location = weatherData.name + ', ' + weatherData.sys.country;
+            var description = weatherData.weather[0].main;
+            var feels_like = weatherData.main.feels_like;
+            var coordinates = 'Lat: '+ weatherData.coord.lat + ', ' + "Lon: " + weatherData.coord.lon;
+    
+            var weatherInfoHTML = `
+                <h2>Weather Information</h2>
+                <p>Location: ${location}</p>
+                <p>Coordinates: ${coordinates}</p>
+                <p>Temperature: ${temperature} °F</p>
+                <p>Feels Like: ${feels_like}</p>
+                <p>Description: ${description}</p>
+            `;
+    
+            weatherInfoDiv.innerHTML = weatherInfoHTML;
+        } else {
+            weatherInfoDiv.innerHTML = '<p>Location not found. Please check your input.</p>';
+        }
+    }
+
+
+    // News App Script
+    function getNews() {
+        var query = document.querySelector('#Searchable_Topic').value;
+        getNewDetails(query);
+    }
+    
+    function getNewDetails(query) {
+        var api_key = '13ff9dd1a55547f3b44b3e53721e5fc2';
+        var today = new Date().toISOString().split('T')[0];
+        var news_url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&apiKey=${api_key}`;
+    
+        fetch(news_url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error getting news data. HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(newsData => {
+                console.log('News Data:', newsData);
+    
+                if (newsData.totalResults !== 0) {
+                    var relevantArticles = filterRelevantArticles(newsData.articles);
+                    displayNewsInfo(relevantArticles);
+                } else {
+                    throw new Error('No News found.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error.message);
+                displayError(error.message);
+            });
+    }
+
+    function filterRelevantArticles(articles) {
+        // Filter articles for the past week
+        var today = new Date();
+        var lastWeek = new Date(today);
+        lastWeek.setDate(today.getDate() - 7);
+    
+        return articles.filter(article => {
+            var articleDate = new Date(article.publishedAt);
+            return articleDate >= lastWeek && articleDate <= today;
+        });
+    }
+
+    function displayNewsInfo(articles) {
+        console.log('Displaying News Info:', articles);
+        var newsInfoDiv = document.getElementById('NewsInfo');
+        newsInfoDiv.innerHTML = '';
+    
+        if (articles && articles.length > 0) {
+            // Display up to top 10 articles
+            articles.slice(0, 10).forEach(article => {
+                var title = article.title || 'No Title';
+                var description = article.description || 'No Description';
+                var url = article.url || '#';
+                /* var content = article.content || ''; */
+    
+                // Trim content to a reasonable length
+                /* var trimmedContent = content.length > 200 ? content.substring(0, 200) + '...' : content; */
+    
+                var articleHTML = `
+                    <h2>${title}</h2>
+                    <p>${description}</p>
+                    <a href="${url}" target="_blank">Read more</a>
+                    <hr>
+                    `;
+                    /* <p>${trimmedContent}</p> */
+    
+                newsInfoDiv.innerHTML += articleHTML;
+            });
+        } else {
+            newsInfoDiv.innerHTML = '<p>No relevant news articles found for today.</p>';
+        }
+    }
+
+
+
+</script>

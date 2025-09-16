@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETL Project</title>
+    <style>
+        body {
+            font-family: 'Arial Black', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000e1;
+            background-image: url('https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/background_images/White_Background_2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        header {
+            background-color: #000000;
+            font-size: 30px ;
+            text-align: center;
+            padding: 1em;
+            background-image: url('https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif');
+            background-size: cover;
+            overflow: hidden;
+            height: 200px; /* Adjust header size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav {
+            background-image: url('https://media.giphy.com/media/xVn3ZmKrKIOLS/giphy.gif');
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            width: 25%;
+            box-sizing: border-box;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
+        }
+
+        section {
+            padding: 2em;
+            color: #333;
+        }
+
+        section p {
+            margin-bottom: 1em;
+        }
+
+        section ul {
+            list-style-type: square; /* You can change 'disc' to 'circle', 'square', etc. */
+            margin-left: 20px;
+        }
+
+        .image-gallery img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ETL Project</h1>
+    </header>
+    <nav>
+        <a href="http://eric-castilla-website-1.s3-website-us-west-1.amazonaws.com">Home Page</a>
+    </nav>
+    <section>
+        <h2>Apache Nifi Data Pipeline</h2>
+        <p>I created a data pipeline (Data flow, ETL Design etc) that executes Python programs, moves files and inserts data into a SQL Server on a set schedule. </p>    
+    </section>
+    <section>
+        <hr>
+        <h2>Data Pipeline and Realtime Weather Tracker</h2>
+        <p>The goal of this undertaking was to become familiar with the process and syntax of a popular and scalable ETL tool. 
+            <br>I picked Apache Nifi for this as it is opensource, free to run on your local device, and comes from a big player in the Data Engineering and ETL space. 
+            <br>The notes in the image below display some details of each section of the diagram. 
+            <br>
+            <br><strong>Concisely, I wanted to achieve the following:</strong>
+            <ul>
+                <li>Execute a Webscraping Program automatically (the program outputs an excel file) then move the file to another location.
+                <li>Execute another program that accessed an Opensource Weather API and got the current weather.
+                <li>Ingest data into the ETL tool for formatting.
+                <li>Insert into a SQL server (that is connected to a Tableau Dashboard.)
+                </li>
+            </ul>
+        </p>
+        <h2>Data Pipeline Outline</h2>
+        <div class="image-gallery">
+            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/project_pics/Apache+Nifi+Data-Pipeline+1.PNG">
+        </div>
+        <p>This pipeline allowed me to learn some of the processors Apache Nifi offers, and get familiar with the syntax and configuration of them. Definently a learning curve, but once I was able to get the ODBC connections setup, and properly create and execute my Python programs, it wasn't too bad.</p>
+        <h2>Realtime Weather Tracking Dashboard</h2>
+        <div class="image-gallery">
+            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/project_pics/Real+Time+Temp+Tracking+and+Forecasting+1.PNG">
+        </div>
+        <p>The above dashboard was made using Tableau Desktop, and is connected to the SQL Server Table that I setup earlier for this project. 
+            <br><i>(I wasn't able to embed this dashboard since I am using the desktop version, and wanted to keep the display live.)</i>
+        <br>
+        <br>
+        End Product: An interactive dashboard with historical, current, and forecasted weather data along with various other metrics.
+        </p>
+        <p> </p>
+    </section>
+    <section>
+        <hr>
+        <h2>Program Details and Example Code</h2>
+        <p>For more information on the scripts used, and to see the code of both the Webscraper and API Call Program, feel free to visit my Github Profile linked either on the Home Page, or <a href="https://github.com/CastyBoi">right here</a>. <i>(Most of the files will be under the ETL Project pinned on my profile.)</i>
+            <br>
+            <br>Thanks for Reading!
+        </p>
+    </section>
+    <footer>
+        <p>&copy; 2023 Eric's Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>

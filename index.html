@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric's Website</title>
+    <style>
+        body {
+            font-family: 'Arial Black', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000e1;
+            background-image: url('https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/background_images/White_Background_2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        header {
+            background-color: #000000;
+            text-align: center;
+            font-size: 30px ;
+            padding: 1em;
+            background-image: url('https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif');
+            background-size: cover;
+            overflow: hidden;
+            height: 200px; /* Adjust header size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav {
+            background-image: url('https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif');
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            width: 25%;
+            box-sizing: border-box;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
+        }
+
+        section {
+            padding: 2em;
+            color: #333;
+        }
+
+        section p {
+            margin-bottom: 1em;
+        }
+
+        section ul {
+            list-style-type: square; /* You can change 'disc' to 'circle', 'square', etc. */
+            margin-left: 20px;
+        }
+
+        .image-gallery img {
+            max-width: 500px;
+            max-height:500px;
+            height: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+        .embedded-content {
+        max-width: auto; /* Adjust the value to your desired maximum width */
+        max-height: auto; /* Adjust the value to your desired maximum width */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Eric's Website</h1>
+        
+    </header>
+    <nav>
+        <a href="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/Programming_Projects.html">Programming Projects</a>
+        <a href="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/Project_2.html">Eric's Hobbies</a>
+        <a href="https://www.linkedin.com/in/eric-castilla-77b525183/">Linkedin Profile</a>
+        <a href="https://github.com/CastyBoi">Github Profile</a>
+        <a href="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/Eric+Castilla+Resume+(Website).pdf">Resume</a>
+    </nav>
+
+    <section>
+        <h2>Website Purpose</h2>
+        <p>This space has been designed as a portfolio of sorts. The idea is to have a place to update, and display all the various projects I have completed that I deem memorable or important.<p> 
+        <p>Thanks for visiting!</p>    
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>ETL Project: Data Visualization</h3>
+            <div class='tableauPlaceholder' id='viz1707965030564' style='position: relative'><noscript><a href='#'><img alt='Map Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarSalesMetricDashboard&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CarSalesMetricDashboard&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;CarSalesMetricDashboard&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1707965030564');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1400px';vizElement.style.height='727px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1400px';vizElement.style.height='727px';} else { vizElement.style.width='100%';vizElement.style.height='1527px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            
+            <p>This dashboard is the end result of an ETL project I wanted to setup. Has around 5k datapoints, and can be setup to automatically update depending on Data Viz software used.</p>
+            <p>My process for this was much more streamlined than the dashboards below. I was already familiar with scraping data from websites, but this time I wanted more details (zip codes, transmission, url) and was able to parse JSON data from the AutoTrader Website. (Shoutout AutoTrader for not blocking my IP address like Cars.com). More details on Data Pipeline, Flow, and overall process can be found on my Projects Page.
+            <br>
+            <br>
+            The end product is a dashboard that shows the Average Price by state, allows easy filtering by Manufacturer, Model, and gives some basic insights on distribution. This endevour was more about learning ETL tools and seting up an automated process vs having a really nice data visualization tool.
+                        </p>
+            <br>
+            <br>
+            </p>
+        <br>
+        <hr>
+        </div>
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Tableau Dashboard: Porsche Data Research</h3>
+            <h4>Link: <a href="https://public.tableau.com/views/PorscheResearch718and911Only/PorscheCostMileageDB?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank">Porsche Research Dashboard</a></h4>
+            <div class='tableauPlaceholder' id='viz1704751472707' style='position: relative'><noscript><a href='#'><img alt='Porsche Cost&#47;Mileage DB ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Po&#47;PorscheResearch718and911Only&#47;PorscheCostMileageDB&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PorscheResearch718and911Only&#47;PorscheCostMileageDB' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Po&#47;PorscheResearch718and911Only&#47;PorscheCostMileageDB&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1704751472707');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1500px';vizElement.style.height='877px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1500px';vizElement.style.height='877px';} else { vizElement.style.width='100%';vizElement.style.height='2077px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            
+            <p>Created a dashboard to display some basic data related to Porsche pricing, mileage, year, and trim.</p>
+            <p>In order to gather the above information, I familiarized myself with the following: Selenium (Python package), lots of Googling, ChatGPT prompting, more Googling, and lots of trial and error. 
+            <br>
+            <br>
+            The end product is an interative Tableau Public Dashboard, that allows the user to sort through about 2000 data points, select different models, trims, years, etc, and see trends in relation to age and mileage! Also, if you click the images it takes you to Porsche's website and you can build your own 718 or 911.
+            <p>
+                End Product: utilized several skills, from Python programming, Pandas for data cleaning, regex string identification to separate the information, and Webscraping knowledge. <i>(I even created my own SQL Server to store the information!) </i>
+            </p>
+            <br>
+            <br>
+            </p>
+        <br>
+        <hr>
+        <div class="project">
+            <h3>Tableau Dashboard: Manual Car Research</h3>
+            <h4>Link: <a href="https://public.tableau.com/views/ManualCarResearchArizona/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank">Manual Car Research Dashboard</a></h4>    
+            <p><div class='tableauPlaceholder' id='viz1704751412837' style='position: relative'><noscript><a href='#'><img alt='Manual Car Research Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;ManualCarResearchArizona&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ManualCarResearchArizona&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;ManualCarResearchArizona&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1704751412837');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1500px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1500px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='2877px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></p>
+            
+            <p>Created another dashboard to research all manual cars within a 100 mile radius to my zipcode.</p>
+            <p>The data used in the dashboard above was gathered using a modified Webscraper that also collects the listing links, and more reliably captures and separates trim and model data.
+                <p>This dashboard is an evolution of the first, and was developed after I had spent more time using Tableau in my day to day work. This one actually holds links to the car listings that were scraped, and are clickable right in the dashboard itself! 
+                    <p>End product: Similar outputs and trend recoginition, but with a little more usability and some extra features when compared to the first.
+                    </p>
+                    <hr>
+                </div>
+            </div>
+            <div class="project">
+                <h3>Raspberry Pi Based Data Logger</h3>
+                <p>This project was a long time in the making, as it was quite literally my FIRST endevour into the world of programming and developement. I had an end goal which could be summarized as follows: <i>"Develop a method to log production data, and display the data live using a data visualization software".</i> I had no idea there would be so many moving parts, and was only vaguely familar with many of the concepts involved in this task. 
+                    <br>
+                <br>
+                <i>(The clip below is not of the actual data logging device. I didn't feel comfortable sharing actual images since it is being used in production at my company. So I made a simple display with a WRX Hatchback instead.)</i>
+                <!-- Paste your Imgur embed code here -->
+                <div class="embedded-content">
+                    <blockquote class="imgur-embed-pub" lang="en" data-id="a/UpGbQud" data-context="false" ><a href="//imgur.com/a/UpGbQud"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+                </div>
+                <br>Some things I learned over the development, prototyping, and eventual deployment of this project:
+                <ul>
+                <br><li>3D modeling - CAD Design</li> 
+                <br><li>Python - Linux - Bash Scripts</li> 
+                <br><li>Linux - Bash Scripts</li> 
+                <br><li>Microsoft SQL Server - SQL</li> 
+                <br><li>CRON scheduling - FTP File Transfer</li> 
+                <br><li>Tableau - Data Analytics</li> 
+                <br><li>Pandas - Data Cleaning</li> 
+                </ul>
+                <p>               
+                I researched, developed, and deployed almost every bit involved in this project. From 3D modeling a bracket to fit the equipment, deploying a SQL Server, writing the code to read and send sensor data, and finally to actually testing and sending the device to be put into production. 
+                <br>           
+                </p>
+                <hr>
+            </div>
+        <div class="project">
+            <h3>CAD Projects</h3>
+            <p>Early on in my career I worked pretty heavily in CAD. My experience was varied and I did some 2-D floor planning, 3-D modeling, and even some photo-realstic renders of spaces.
+                <br>
+                <br>
+                <br>
+                Living Room Render
+            <br>
+                <blockquote class="imgur-embed-pub" lang="en" data-id="3gSpRHm"><a href="https://imgur.com/3gSpRHm">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+            
+            <br><i>(The above image was made using Sketchup Pro. I placed lighting and various furniture pieces to create this space.)</i>
+            <br>
+            <br>
+            <br>
+            <p>Crankshaft and Piston Model
+            <br>
+            <br>
+            </p>
+            <div class="embedded-content">
+                <iframe src="https://giphy.com/embed/470opr0j5pThxRnNb1" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/470opr0j5pThxRnNb1">via GIPHY</a></p>
+            <i>(I created the above model using Fusion 360 and several reference images to estimate part sizing, orientation, and general aesthtics.)</i>
+            <br>
+            <br>
+            <br>
+            <p>Honda Engine Model
+            <br>
+            <br>
+        </p>
+        <div class='image-gallery'>
+            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/project_pics/Honda+Engine+Model+1.JPG" alt="Honda Engine Model">
+        </div>
+        The only natural evolution to creating a crankshaft and piston assebmbly, was to model the entire engine! 
+        <br><i>(Well not everything, but I am still very proud of this and think it looks pretty neat.)</i>
+        <br>
+        </p>
+        <hr>
+        </div>
+        <br>
+        <p>Website Notes:
+            <br>
+            In case it wasn't clear, this entire website was created by me. It is hosted on AWS S3, and most of these images are stored on my S3 service as well. 
+            <br>
+            <br>
+            Thanks for visiting!!!
+        </p>
+
+
+        <!--
+        <div class="project">
+            <h3>Raspberry Pi Based Data Logger</h3>
+            <p>Project description goes here.</p>
+        </div>
+    </section>
+ --> 
+    <footer>
+        <p>&copy; 2023 Eric's Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
