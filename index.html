@@ -106,9 +106,42 @@
     .embed{ position:relative; width:100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow:hidden; border:1px solid var(--border); background:#0d1116 }
     .embed > *{ position:absolute; inset:0; width:100%; height:100% }
 
-    .embed.tableau { aspect-ratio: 16 / 10; min-height: 1000 } /* try 820–1000px */
+    .embed.tableau { aspect-ratio: 16 / 10; min-height: 1000px } /* try 820–1000px */
     @media (min-width: 1280px){ .embed.tableau { min-height: 980px } }
     @media (max-width: 840px){ .embed.tableau { aspect-ratio: 4 / 5; min-height: 560px } }
+
+    /* Thumbnail-style Tableau preview */
+    .tableau-thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #0d1116;
+    box-shadow: var(--shadow);
+    }
+    .tableau-thumb img {
+    display: block;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    /* Make preview big and readable */
+    aspect-ratio: 16 / 10;
+    }
+    @media (max-width: 900px) {
+    .tableau-thumb img { aspect-ratio: 4 / 5; }
+    }
+    .tableau-thumb .open {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(0,0,0,.55);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    }
 
     /* Footer */
     footer{ border-top:1px solid var(--border); color:var(--muted); text-align:center; padding: 36px var(--space) 60px }
@@ -168,11 +201,16 @@
         <!-- Card 2: Porsche Research -->
         <article class="card">
           <h3>Tableau: Porsche Research</h3>
-          <p><a href="https://public.tableau.com/views/PorscheResearch718and911Only/PorscheCostMileageDB?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener">Open dashboard ↗</a></p>
-          <div class="embed tableau">
-            <div class='tableauPlaceholder' id='viz1704751472707'><noscript><a href='#'><img alt='Porsche Cost/Mileage DB ' src='https://public.tableau.com/static/images/Po/PorscheResearch718and911Only/PorscheCostMileageDB/1_rss.png' /></a></noscript><object class='tableauViz'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PorscheResearch718and911Only/PorscheCostMileageDB' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https://public.tableau.com/static/images/Po/PorscheResearch718and911Only/PorscheCostMileageDB/1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
-          </div>
-          <p style="margin-top:12px">Interactive analysis of ~2k listings (price x mileage x year). Click images to launch Porsche's build tool.</p>
+            <a class="tableau-thumb"
+            href="https://public.tableau.com/views/PorscheResearch718and911Only/PorscheCostMileageDB"
+            target="_blank" rel="noopener">
+            <img
+                src="https://public.tableau.com/static/images/Po/PorscheResearch718and911Only/PorscheCostMileageDB/1.png"
+                alt="Porsche research dashboard preview">
+            <span class="open">Open full dashboard ↗</span>
+            </a>
+            <p style="margin-top:12px">End-to-end pipeline from scrape → clean → JSON → dashboard (~5k rows). Filters by make/model and shows price distribution by state.</p>
+
         </article>
 
         <!-- Card 3: Manual Car Research -->
