@@ -112,6 +112,22 @@
       height: auto; /* let content define height */
     }
 
+    /* Make wide cards span all 3 columns */
+    .card-wide {
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      height: auto;
+      grid-column: 1 / -1; /* full width */
+    }
+
+    .card-wide img {
+      max-width: 95%;
+      height: auto;
+    }
+
     /* Responsive embeds (Tableau, iframes, etc.) */
     .embed{ position:relative; width:100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow:hidden; border:1px solid var(--border); background:#0d1116 }
     .embed > *{ position:absolute; inset:0; width:100%; height:100% }
@@ -167,10 +183,10 @@
         <p class="lead">A simple space to share stuff I do and stuff I'm into.
         </p>
         <div class="cta">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn" href="https://castyboi.github.io/Project_2.html">Hobbies</a>
+          <!-- <a class="btn primary" href="/ETL_Project_1.html">Additional Projects</a> -->
+          <a class="btn primary" href="https://www.linkedin.com/in/eric-castilla-77b525183/" target="_blank" rel="noopener">Linkedin Profile</a>
+          <a class="btn " href="/Project_2.html">Hobbies</a>
           <a class="btn" href="https://github.com/CastyBoi" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/eric-castilla-77b525183/" target="_blank" rel="noopener">Linkedin Profile</a>
           <a class="btn" href="https://castyboi.github.io/Eric_Castilla_Resume.pdf" target="_blank" rel="noopener">Resume</a>
         </div>
       </div>
@@ -205,7 +221,11 @@
                 alt="ETL Pipeline Sample Dashboard">
             <span class="open">Open full dashboard ↗</span>
           </a>
-          <p style="margin-top:12px">End-to-end pipeline from scrape → clean → JSON → dashboard (~5k rows). Filters by make/model and shows price distribution by state.</p>
+          <p style="margin-top:12px">This dashboard is the end result of an ETL project I wanted to setup. Has around 5k datapoints, and can be setup to automatically update depending on Data Viz software used.</p>
+
+          <p><br> My process for this was much more streamlined than the dashboards below. I was already familiar with scraping data from websites, but this time I wanted more details (zip codes, transmission, url) and was able to parse JSON data from the AutoTrader Website. (Shoutout AutoTrader for not blocking my IP address like Cars.com). More details on Data Pipeline, Flow, and overall process can be found on my Projects Page. </p>
+
+          <p> <br> The end product is a dashboard that shows the Average Price by state, allows easy filtering by Manufacturer, Model, and gives some basic insights on distribution. This endevour was more about learning ETL tools and seting up an automated process vs having a really nice data visualization tool.</p>
         </article>
 
         <!-- Card 2: Porsche Research -->
@@ -219,7 +239,13 @@
                 alt="Porsche research dashboard preview">
             <span class="open">Open full dashboard ↗</span>
             </a>
-            <p style="margin-top:12px">End-to-end pipeline from scrape → clean → JSON → dashboard (~5k rows). Filters by make/model and shows price distribution by state.</p>
+            <p style="margin-top:12px">Created a dashboard to display some data related to Porsche pricing, mileage, year, and trim.
+
+            <p>This endevour was an attmempt at practiciing web scraping once more, but also for testing out some unique features in Tableau.
+
+            <p>The end product is an interative Tableau Public Dashboard, that allows the user to sort through about 2000 data points, select different models, trims, years, etc, and see trends in relation to age and mileage! Also, if you click the images it takes you to Porsche's website and you can build your own 718 or 911.
+
+            <p>End Product: utilized several skills, from Python programming, Pandas for data cleaning, regex string identification to separate the information, and Webscraping knowledge. (I even created my own SQL Server to store the information!)</p>
 
         </article>
 
@@ -235,8 +261,53 @@
                 alt="Porsche research dashboard preview">
             <span class="open">Open full dashboard ↗</span>
             </a>
-          <p style="margin-top:12px">Survey of manual-transmission cars near my ZIP. Each listing is clickable from within the viz.</p>
+          <p style="margin-top:12px">Created another dashboard to research all manual cars within a 100 mile radius to my zipcode.
+
+          <p>The data used in the dashboard above was gathered using a modified Webscraper that also collects the listing links, and more reliably captures and separates trim and model data.</p>
+
+          <p>This dashboard is an evolution of the first, and was developed after I had spent more time using Tableau in my day to day work. This one actually holds links to the car listings that were scraped, and are clickable right in the dashboard itself!</p>
+
+         <p>End product: Similar outputs and trend recoginition, but with a little more usability and some extra features when compared to the first. </p>
         </article>
+
+        <!-- Card Wide: Manual Car Research -->
+
+        <article class="card card-wide">
+          <hr>
+          <h2>Data Pipeline and Realtime Weather Tracker</h2>
+          <p>The goal of this undertaking was to become familiar with the process and syntax of a popular and scalable ETL tool. 
+              <br>I picked Apache Nifi for this as it is opensource, free to run on your local device, and comes from a big player in the Data Engineering and ETL space. 
+              <br>The notes in the image below display some details of each section of the diagram. 
+              <br>
+              <br><strong>Concisely, I wanted to achieve the following:</strong>
+              <ul>
+                  <li>Execute a Webscraping Program automatically (the program outputs an excel file) then move the file to another location.
+                  <li>Execute another program that accessed an Opensource Weather API and got the current weather.
+                  <li>Ingest data into the ETL tool for formatting.
+                  <li>Insert into a SQL server (that is connected to a Tableau Dashboard.)
+                  </li>
+              </ul>
+          </p>
+          <h2>Data Pipeline Outline</h2>
+          <div class="image-gallery">
+              <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/project_pics/Apache+Nifi+Data-Pipeline+1.PNG">
+          </div>
+          <p>This pipeline allowed me to learn some of the processors Apache Nifi offers, and get familiar with the syntax and configuration of them. Definently a learning curve, but once I was able to get the ODBC connections setup, and properly create and execute my Python programs, it wasn't too bad.</p>
+          <h2>Realtime Weather Tracking Dashboard</h2>
+          <div class="image-gallery">
+              <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/project_pics/Real+Time+Temp+Tracking+and+Forecasting+1.PNG">
+          </div>
+          <p>The above dashboard was made using Tableau Desktop, and is connected to the SQL Server Table that I setup earlier for this project. 
+              <br><i>(I wasn't able to embed this dashboard since I am using the desktop version, and wanted to keep the display live.)</i>
+          <br>
+          <br>
+          End Product: An interactive dashboard with historical, current, and forecasted weather data along with various other metrics.
+          </p>
+          <p> </p>
+        </article>
+
+
+
 
         <!-- Card 4: Raspberry Pi Logger -->
         <article class="card">
@@ -269,11 +340,18 @@
           <div class="embed" style="aspect-ratio: 1 / 1">
             <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/project_pics/Honda+Engine+Model+1.JPG" alt="Honda Engine Model" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover"/>
             
-        </div>
+          </div>
+
+
+          <div class="embed" style="aspect-ratio: 3 / 2">
+            <img src="images/Living Room Render.jpeg"
+                alt="Living Room Render"
+                style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover"/>
+          </div>
         
-        <div class="embed" style="aspect-ratio: 1 / 1"> 
+          <div class="embed" style="aspect-ratio: 1 / 1"> 
             <iframe src="https://giphy.com/embed/470opr0j5pThxRnNb1" frameborder="0" allowfullscreen title="Crankshaft animation"></iframe> 
-        </div>
+          </div>
 
           <p style="margin-top:12px">Fusion 360 assemblies and renders; engine components, interiors, and more.</p>
         </article>

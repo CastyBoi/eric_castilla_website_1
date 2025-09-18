@@ -1,157 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eric's Hobbies</title>
-    <style>
-        body {
-            font-family: 'Arial Black', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000000e1;
-            background-image: url('https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/background_images/White_Background_2.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #fff;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eric's Hobbies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#041725;
+      --bg-elev:#000000;
+      --text:#e8edf1;
+      --muted:#b2bdc6;
+      --brand:#61dafb;
+      --brand-2:#8e7dff;
+      --border:#1f262c;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --space: clamp(16px, 2vw, 28px);
+      --maxw: 1000px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, sans-serif;
+      color:var(--text);
+      background: var(--bg);
+      line-height:1.6;
+    }
+    header{
+      padding: 48px var(--space);
+      text-align: center;
+      background: linear-gradient(135deg, rgba(97,218,251,.15), rgba(142,125,255,.15));
+      border-bottom:1px solid var(--border);
+    }
+    h1{ margin:0; font-size: clamp(28px, 5vw, 48px); }
+    nav{
+      display:flex; justify-content:center; gap:20px;
+      background: var(--bg-elev);
+      border-bottom: 1px solid var(--border);
+      padding: 12px;
+    }
+    nav a{
+      color:var(--muted); text-decoration:none; font-weight:600; padding:8px 12px; border-radius:10px;
+    }
+    nav a:hover{ background:rgba(255,255,255,.06); color:var(--text) }
 
-        header {
-            background-color: #000000;
-            text-align: center;
-            font-size: 30px ;
-            padding: 1em;
-            background-image: url('https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif');
-            background-size: cover;
-            overflow: hidden;
-            height: 200px; /* Adjust header size */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    main{ max-width:var(--maxw); margin:0 auto; padding: 48px var(--space); }
+    section{ margin-bottom: 64px }
+    section h2{ font-size: clamp(22px, 3vw, 34px); margin-bottom: 12px }
+    section p{ color: var(--muted) }
 
-        h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-
-        nav {
-            background-image: url('https://media.giphy.com/media/3ov9k1173PdfJWRsoE/giphy.gif');
-            background-size: cover;
-            overflow: hidden;
-        }
-
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            width: 25%;
-            box-sizing: border-box;
-        }
-
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            color: black;
-        }
-
-        section {
-            padding: 2em;
-            color: #333;
-        }
-
-        section p {
-            margin-bottom: 1em;
-        }
-
-        section ul {
-            list-style-type: square; /* You can change 'disc' to 'circle', 'square', etc. */
-            margin-left: 20px;
-        }
-
-        .image-gallery img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-        }
-    </style>
+    .grid{
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap:20px;
+    }
+    .card{
+      background: var(--bg-elev);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .image-gallery img{
+      width:100%; height:auto; border-radius: var(--radius);
+      border:1px solid var(--border);
+    }
+    footer{
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      text-align:center;
+      padding: 36px var(--space) 60px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Eric's Hobbies</h1>
-    </header>
-    <nav>
-        <a href="http://eric-castilla-website-1.s3-website-us-west-1.amazonaws.com">Home Page</a>
-    </nav>
-    <section>
-        <h2>Photography and Cars</h2>
-        <p>I like to take pictures, and I like cars. 
-            <br>    
-            <br>
-            Theres something about the art of composition, and capturing a moment that does the soul good. 
-            <br>
-            <br>
-            Similarly, I find immense satisfaction when undertaking a repair or upgrade to a vehicle, struggling through unforseen obstacles, and finally acomplishing the task. 
-            <br>
-            Feels nice to do something with your hands once in a while.</p>    
-    </section>
-    <section>
-        <h2>Camera Progression</h2>
-        <p>The first camera I used was a Sony A6000. This was a great entry level place to start, and there was a plethora of lenses availabe for various scenarios. 
-        <br>
-        <br>
-        I eventually upgraded to a Sony A7ii, and I LOVED the photos it was able to produce. The Field of View was much greater, and my lightroom skills slowly got better. <i>(I did eventually sell this camera as I stopped using it for over a year.)</i>
-        <br>
-        <br>
-        After selling the Sony, I was gifted a Panasonic Lumix G100. I still have this one, and it has proven itself to be very easy to carry and use.
-        <br>
-        <br>
-        More recently I have been using a Canon F5D MKii. Its an oldie but a goldie, and the full frame sensor lets me get back that Field of View I am missing in the Lumix.
-        <br>
-        <br>
-        I will be adding more to this page as time progresses, but below are some sample images I have taken in past years.
-        </p>
-    </section>
+  <header>
+    <h1>Eric's Hobbies</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#photography">Photography</a>
+    <a href="#cars">Cars</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
 
-    <section>
+  <main>
+    <section id="photography">
+      <h2>Photography</h2>
+      <p>I like to take pictures, and there's something about the art of composition and capturing a moment that does the soul good.</p>
+      <p>The first camera I used was a Sony A6000. This was a great entry level place to start, and there was a plethora of lenses availabe for various scenarios.</p>
+
+        <p>I eventually upgraded to a Sony A7ii, and I LOVED the photos it was able to produce. The Field of View was much greater, and my lightroom skills slowly got better. (I did eventually sell this camera as I stopped using it for over a year.)</p>
+
+        <p>After selling the Sony, I was gifted a Panasonic Lumix G100. I still have this one, and it has proven itself to be very easy to carry and use.</p>
+
+        <p>After this I tried using a pretty old DSLR, the Canon 5D MKii. Its an oldie but a goldie, and the full frame sensor lets me get back that Field of View I am missing in the Lumix. This was fun shooting with cheap and kinda shitty lenses, but you miss the features of a new camera after a while.</p>
+
+        <p>My Fianceé (after getting her big girl job as an RN, SO proud of her) bought me a Canon RP and I picked up a 35mm lens. After using the 5D for a while I liked the ergo and color reproduction so it made sense to get into a newer full frame. Loving this one, some really awesome pictures have come from me using this one more regularly.</p>
+
+        <p>I will be adding more to this page as time progresses, but below are some sample images I have taken in past years.</p>
+    </section>
+    
+    <section id="cars">
+        <h2>Cars</h2>
+        <p>I find immense satisfaction in working on vehicles — tackling repairs or upgrades, pushing through obstacles, and finally accomplishing the task. Feels nice to do something with your hands once in a while.</p>
+    </section>
+    
+    <section id="gallery">
         <h2>Sample Images</h2>
-        <div class="image-gallery">
-            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/hobby_pics/BRZ+1.jpg" alt="BRZ Pic">
+        <div class="grid">
+        <div class="card">
+            <div class="image-gallery">
+            <img src="/images/IMG_0345.JPG" alt="GTI Pic">
+            </div>
+            <p><i>Canon RP</i></p>
         </div>
-        <p><i>Taken on Sony A7ii</i></p>
-        <br>
-        <br>
-        <div class="image-gallery">
-            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/hobby_pics/Miata+Pic+1.jpg" alt="Miata Pic 1">
+    
+        <div class="card">
+            <div class="image-gallery">
+            <img src="/images/IMG_0351.JPG" alt="GTI Pic">
+            </div>
+            <p><i>Canon RP</i></p>
         </div>
-        <p><i>Taken on Canon 5D MKii</i></p>
-        <br>
-        <br>
-        <div class="image-gallery">
-            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/hobby_pics/Miata+Pic+2.jpg" alt="Miata Pic 2">
+    
+        <div class="card">
+            <div class="image-gallery">
+            <img src="/images/IMG_0355.JPG" alt="GTI Pic">
+            </div>
+            <p><i>Canon RP</i></p>
         </div>
-        <p><i>Taken on Canon 5D MKii</i></p>
-        <br>
-        <br>
-        <div class="image-gallery">
-            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/hobby_pics/Sedona+1.JPG" alt="Sedona Pic">
-        </div>       
-        <p><i>Taken on Sony A6000</i></p>
-        <br>
-        <br>
-    </section>
 
-    <footer>
-        <p>&copy; 2023 Eric's Portfolio. All rights reserved.</p>
-    </footer>
+        <div class="card">
+            <div class="image-gallery">
+            <img src="/images/IMG_0189.JPG" alt="Labubus">
+            </div>
+            <p><i>Canon RP</i></p>
+        </div>
+        <div class="card">
+            <div class="image-gallery">
+            <img src="/images/IMG_0205.JPG" alt="Dogs">
+            </div>
+            <p><i>Canon RP</i></p>
+        </div>
+
+        <div class="card">
+          <div class="image-gallery">
+            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/hobby_pics/BRZ+1.jpg" alt="BRZ Pic">
+          </div>
+          <p><i>Sony A7ii</i></p>
+        </div>
+        <div class="card">
+          <div class="image-gallery">
+            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/hobby_pics/Miata+Pic+1.jpg" alt="Miata Pic 1">
+          </div>
+          <p><i>Canon 5D MKii</i></p>
+        </div>
+        <div class="card">
+          <div class="image-gallery">
+            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/hobby_pics/Miata+Pic+2.jpg" alt="Miata Pic 2">
+          </div>
+          <p><i>Canon 5D MKii</i></p>
+        </div>
+        <div class="card">
+          <div class="image-gallery">
+            <img src="https://eric-castilla-website-1.s3.us-west-1.amazonaws.com/images/hobby_pics/Sedona+1.JPG" alt="Sedona Pic">
+          </div>
+          <p><i>Sony A6000</i></p>
+        </div>
+
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Eric Castilla. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
