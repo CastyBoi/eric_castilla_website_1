@@ -210,9 +210,9 @@
     <section class="section" id="projects">
       <h2>Projects</h2>
       <div class="grid">
-        <!-- Card 1: ETL Project -->
+        <!-- ETL Project -->
         <article class="card">
-          <h3>ETL Project: Data Visualization</h3>          
+          <h3>ETL Project:<br> Collection and Visualization</h3>          
             <a class="tableau-thumb"
             href="https://public.tableau.com/views/CarSalesMetricDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
             target="_blank" rel="noopener">
@@ -223,14 +223,16 @@
           </a>
           <p style="margin-top:12px">This dashboard is the end result of an ETL project I wanted to setup. Has around 5k datapoints, and can be setup to automatically update depending on Data Viz software used.</p>
 
-          <p><br> My process for this was much more streamlined than the dashboards below. I was already familiar with scraping data from websites, but this time I wanted more details (zip codes, transmission, url) and was able to parse JSON data from the AutoTrader Website. (Shoutout AutoTrader for not blocking my IP address like Cars.com). More details on Data Pipeline, Flow, and overall process can be found on my Projects Page. </p>
+          <p>My process for this was much more streamlined than some of my first ETL Projects (as it should be). I was already familiar with scraping data from websites, but this time I wanted more details (zip codes, transmission, url) and was able to parse JSON data from the AutoTrader Website. (Shoutout AutoTrader for not blocking my IP address like Cars.com). More details on Data Pipeline, Flow, and overall process can be found on my Projects Page. </p>
 
-          <p> <br> The end product is a dashboard that shows the Average Price by state, allows easy filtering by Manufacturer, Model, and gives some basic insights on distribution. This endevour was more about learning ETL tools and seting up an automated process vs having a really nice data visualization tool.</p>
+          <p>The end product is a dashboard that shows the Average Price by state, allows easy filtering by Manufacturer, Model, and gives some basic insights on distribution. This endevour was more about learning ETL tools and seting up an automated process vs having a really nice data visualization tool.</p>
+
+          <p><strong>Furhter Refined skills: Python, Pandas, Selenium, and Excel Files to store and upload data to the dashboard.</strong></p>
         </article>
 
-        <!-- Card 2: Porsche Research -->
+        <!-- Porsche Research -->
         <article class="card">
-          <h3>Tableau: Porsche Research</h3>
+          <h3>Tableau: <br> Porsche Research</h3>
             <a class="tableau-thumb"
             href="https://public.tableau.com/views/PorscheResearch718and911Only/PorscheCostMileageDB"
             target="_blank" rel="noopener">
@@ -245,13 +247,28 @@
 
             <p>The end product is an interative Tableau Public Dashboard, that allows the user to sort through about 2000 data points, select different models, trims, years, etc, and see trends in relation to age and mileage! Also, if you click the images it takes you to Porsche's website and you can build your own 718 or 911.
 
-            <p>End Product: utilized several skills, from Python programming, Pandas for data cleaning, regex string identification to separate the information, and Webscraping knowledge. (I even created my own SQL Server to store the information!)</p>
+            <p>End Product: Refining Data collection skills using: Python programming, Pandas for data cleaning, regex string identification to separate the information, and Webscraping knowledge.</p> 
+            <p><strong> Highlight: Setup a SQL Table and Server to store information, for possible future expansion</strong></p>
 
         </article>
 
-        <!-- Card 3: Manual Car Research -->
+        <!-- Card Power Apps Project Sample: Projections -->
         <article class="card">
-          <h3>Tableau: Manual Car Research</h3>
+          <h3> Power App: <br> Sales Projections Test App  </h3>
+          <div class="embed" style="aspect-ratio: 1 / 2"> <img src="images/Projection_App_Image_1.png" alt="Power Apps: Projection Sample" style="position:absolute; inset:0; width:100%;       height:100%; object-fit:cover"/>
+          </div>
+          <p style="margin-top:12px">This project was in response to a business need to attempt to capture projections data from Sales People in the field. Not a novel concept, but without any existing infrastructure, it becomes more difficult to acomplish.
+
+          <p>After spending a couple of weeks getting familiar with Microsoft Power Apps, I was able to get a working sample where allowed users could access and enter data in this form and store it in an Excel file in Sharepoint.</p>
+
+          <p>This didn't go into production due to conflicts with vaguely outlined parameters, but I've got a good basis should I need to do something like this again. </p>
+          
+         <p><strong>End product: A protoype for collecting user uploaded projections to a central hub with permissions based data entry and tracking. </strong></p>
+        </article>
+
+        <!-- Manual Car Research -->
+        <article class="card">
+          <h3>Tableau: <br> </h3>
 
             <a class="tableau-thumb"
             href="https://public.tableau.com/views/ManualCarResearchArizona/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
@@ -265,12 +282,12 @@
 
           <p>The data used in the dashboard above was gathered using a modified Webscraper that also collects the listing links, and more reliably captures and separates trim and model data.</p>
 
-          <p>This dashboard is an evolution of the first, and was developed after I had spent more time using Tableau in my day to day work. This one actually holds links to the car listings that were scraped, and are clickable right in the dashboard itself!</p>
+          <p>This dashboard was developed after I had spent more time using Tableau in my day to day work. This one actually holds links to the car listings that were scraped, and are clickable right in the dashboard itself! (<strong>Links are now old and no longer work.</strong>) </p>
 
-         <p>End product: Similar outputs and trend recoginition, but with a little more usability and some extra features when compared to the first. </p>
+         <p><strong>End product: A usable dashboard for people looking to actually find a car to purchase with trends and other metrics to filter on. </strong></p>
         </article>
 
-        <!-- Card Wide: Manual Car Research -->
+        <!-- Card Wide: Data Pipeline Live Update Full ETL Pipeline -->
 
         <article class="card card-wide">
           <hr>
@@ -309,7 +326,7 @@
 
 
 
-        <!-- Card 4: Raspberry Pi Logger -->
+        <!-- Raspberry Pi Logger -->
         <article class="card">
           <h3>Raspberry Pi Data Logger</h3>
             <div class="embed" style="aspect-ratio: 1 / 1"> <img src="images/etl_images/Microcontroller and Bracket.PNG" alt="Microcontroller and Sensors" style="position:absolute; inset:0; width:100%;       height:100%; object-fit:cover"/>
@@ -334,7 +351,7 @@
                 I researched, developed, and deployed almost every bit involved in this project. From 3D modeling a bracket to fit the equipment, deploying a SQL Server, writing the code to read and send sensor data, and finally to actually testing and sending the device to be put into production. </p>
         </article>
 
-        <!-- Card 5: CAD Projects (image) -->
+        <!-- CAD Projects -->
         <article class="card">
           <h3>CAD Projects</h3>
           <div class="embed" style="aspect-ratio: 1 / 1">
