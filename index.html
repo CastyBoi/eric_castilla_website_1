@@ -95,20 +95,26 @@
     .section h2{ font-size: clamp(22px, 3.5vw, 34px); margin:0 0 12px }
     .section p{ color: var(--muted) }
 
-    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap: 20px }
-    .card{ grid-column: span 12; background: var(--bg-elev); border:1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow) }
-    @media (min-width: 720px){ .card{ grid-column: span 6 } }
-    @media (min-width: 1080px){ .card{ grid-column: span 4 } }
-    .card h3{ margin: 6px 0 8px }
-    .card p{ color: var(--muted) }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      align-items: start; /* <- this stops row-equalizing */
+
+    }
+
+    .card {
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      height: auto; /* let content define height */
+    }
 
     /* Responsive embeds (Tableau, iframes, etc.) */
     .embed{ position:relative; width:100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow:hidden; border:1px solid var(--border); background:#0d1116 }
     .embed > *{ position:absolute; inset:0; width:100%; height:100% }
-
-    .embed.tableau { aspect-ratio: 16 / 10; min-height: 1000px } /* try 820–1000px */
-    @media (min-width: 1280px){ .embed.tableau { min-height: 980px } }
-    @media (max-width: 840px){ .embed.tableau { aspect-ratio: 4 / 5; min-height: 560px } }
 
     /* Thumbnail-style Tableau preview */
     .tableau-thumb {
@@ -190,11 +196,15 @@
       <div class="grid">
         <!-- Card 1: ETL Project -->
         <article class="card">
-          <h3>ETL Project: Data Visualization</h3>
-          <div class="embed tableau">
-            <!-- Original Tableau embed wrapped responsively -->
-            <div class='tableauPlaceholder' id='viz1707965030564'><noscript><a href='#'><img alt='Map Dashboard ' src='https://public.tableau.com/static/images/Ca/CarSalesMetricDashboard/Dashboard1/1_rss.png' /></a></noscript><object class='tableauViz'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CarSalesMetricDashboard/Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https://public.tableau.com/static/images/Ca/CarSalesMetricDashboard/Dashboard1/1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
-          </div>
+          <h3>ETL Project: Data Visualization</h3>          
+            <a class="tableau-thumb"
+            href="https://public.tableau.com/views/CarSalesMetricDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+            target="_blank" rel="noopener">
+            <img
+                src="https://public.tableau.com/static/images/Ca/CarSalesMetricDashboard/Dashboard1/1.png"
+                alt="ETL Pipeline Sample Dashboard">
+            <span class="open">Open full dashboard ↗</span>
+          </a>
           <p style="margin-top:12px">End-to-end pipeline from scrape → clean → JSON → dashboard (~5k rows). Filters by make/model and shows price distribution by state.</p>
         </article>
 
@@ -216,10 +226,15 @@
         <!-- Card 3: Manual Car Research -->
         <article class="card">
           <h3>Tableau: Manual Car Research</h3>
-          <p><a href="https://public.tableau.com/views/ManualCarResearchArizona/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener">Open dashboard ↗</a></p>
-          <div class="embed tableau">
-            <div class='tableauPlaceholder' id='viz1704751412837'><noscript><a href='#'><img alt='Manual Car Research Dashboard ' src='https://public.tableau.com/static/images/Ma/ManualCarResearchArizona/Dashboard1/1_rss.png' /></a></noscript><object class='tableauViz'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ManualCarResearchArizona/Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https://public.tableau.com/static/images/Ma/ManualCarResearchArizona/Dashboard1/1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
-          </div>
+
+            <a class="tableau-thumb"
+            href="https://public.tableau.com/views/ManualCarResearchArizona/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+            target="_blank" rel="noopener">
+            <img
+                src="https://public.tableau.com/static/images/Ma/ManualCarResearchArizona/Dashboard1/1.png"
+                alt="Porsche research dashboard preview">
+            <span class="open">Open full dashboard ↗</span>
+            </a>
           <p style="margin-top:12px">Survey of manual-transmission cars near my ZIP. Each listing is clickable from within the viz.</p>
         </article>
 
@@ -256,7 +271,7 @@
             
         </div>
         
-        <div class="embed" style="aspect-ratio: 16 / 9"> 
+        <div class="embed" style="aspect-ratio: 1 / 1"> 
             <iframe src="https://giphy.com/embed/470opr0j5pThxRnNb1" frameborder="0" allowfullscreen title="Crankshaft animation"></iframe> 
         </div>
 
