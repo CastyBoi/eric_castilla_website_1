@@ -26,8 +26,16 @@ Card thumbnails — safe to leave blank, they'll show a subtle red gradient inst
 - `line-layout-redesign.jpg`
 - `kpi-framework.jpg`
 - `equipment-chatbot.jpg`
-- `honda-engine-model.jpg` — CAD render, shown in the Personal Projects gallery
 - `etl-hero.jpg`, `nifi-pipeline.jpg`, `weather-dashboard.jpg` — used on the ETL case study page (`ETL_Project_1.html`)
+
+## CAD renders (`images/cad_images/`)
+Click-to-enlarge gallery in the Personal Projects → CAD Work block on `index.html`.
+To add a new render or GIF: drop the file here, then copy one of the `<a>` blocks
+in the `.thumb-gallery` markup and update its `href`/`src`/`alt`/caption.
+
+## Hobby photos (`images/hobby_pics/`)
+Used on `hobbies.html` (cars, photography). Same pattern — drop a file in this
+folder, copy an existing `.thumb-gallery` `<a>` block, and point it at the new file.
 
 ## How to point at a different path (e.g. still hosting on S3)
 Every background image is set with an inline `style="--bg-img:url('...')"` on the
