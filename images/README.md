@@ -30,12 +30,41 @@ Card thumbnails — safe to leave blank, they'll show a subtle red gradient inst
 
 ## CAD renders (`images/cad_images/`)
 Click-to-enlarge gallery in the Personal Projects → CAD Work block on `index.html`.
-To add a new render or GIF: drop the file here, then copy one of the `<a>` blocks
-in the `.thumb-gallery` markup and update its `href`/`src`/`alt`/caption.
+To add a new render or GIF: drop the file here, generate a thumbnail (see below),
+then copy one of the `<a>` blocks in the `.thumb-gallery` markup and update its
+`href`/`src`/`alt`/caption.
 
 ## Hobby photos (`images/hobby_pics/`)
 Used on `hobbies.html` (cars, photography). Same pattern — drop a file in this
-folder, copy an existing `.thumb-gallery` `<a>` block, and point it at the new file.
+folder, generate a thumbnail (see below), copy an existing `.thumb-gallery` `<a>`
+block, and point it at the new files.
+
+## Generating thumbnails (important — don't skip this)
+Camera-original photos are typically 6-18MB at 6000px+ wide. Every `.thumb-gallery`
+`<img>` should point at a small resized copy, not the original — the original still
+gets used, just as the `href` (so "view full size" still opens the real, full-res
+file in a new tab). Loading 12+ full-size camera originals as 220px-wide thumbnails
+is the single biggest cause of a gallery feeling slow/janky when scrolling.
+
+On macOS, `sips` (built in, no install needed) does this in one line:
+```
+sips -Z 900 -s formatOptions 70 "images/hobby_pics/your-photo.jpg" --out "images/hobby_pics/your-photo-thumb.jpg"
+```
+That caps the long edge at 900px and re-compresses to ~60-150KB — plenty sharp for
+a thumbnail, even on retina screens. Then in the HTML:
+```html
+<a href="images/hobby_pics/your-photo.jpg" target="_blank" rel="noopener">
+  <img src="images/hobby_pics/your-photo-thumb.jpg" alt="..." loading="lazy" decoding="async">
+  <span class="thumb-caption">...</span>
+</a>
+```
+
+The same applies to full-bleed background photos (`--bg-img:url(...)` on `.has-bg`
+sections/hero banners) — those don't need to be thumbnail-small, but a resized
+`-web` copy keeps page load fast:
+```
+sips -Z 2200 -s formatOptions 74 "images/hobby_pics/your-photo.jpg" --out "images/hobby_pics/your-photo-web.jpg"
+```
 
 ## How to point at a different path (e.g. still hosting on S3)
 Every background image is set with an inline `style="--bg-img:url('...')"` on the

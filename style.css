@@ -479,13 +479,19 @@ section { position: relative; }
   background: #000;
 }
 
-/* Click-to-enlarge thumbnail grid (CAD renders, hobby photos, etc).
-   To add more images: drop a file in the relevant images/ folder and
-   copy one of the existing <a> blocks in the markup — the grid and
-   hover caption pick it up automatically. */
+/* Click-to-enlarge thumbnail wall (CAD renders, hobby photos, etc).
+   Flexbox (not grid) on purpose: a grid's 1fr columns stretch a lone
+   leftover item on the last row to fill the whole row width, which
+   reads as a jagged, broken layout when a gallery's image count isn't
+   a clean multiple of the column count. Flex items grow evenly up to
+   --thumb-max instead, so a remainder row never looks oversized.
+   To add more images: drop a file in the relevant images/ folder,
+   generate a small copy for `src` (see images/README.md), and copy
+   one of the existing <a> blocks in the markup. */
 .thumb-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  --thumb-max: 260px;
+  display: flex;
+  flex-wrap: wrap;
   gap: 14px;
   margin: 20px 0;
 }
@@ -495,15 +501,18 @@ section { position: relative; }
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--bg-raised);
+  flex: 1 1 220px;
+  max-width: var(--thumb-max);
 }
 .thumb-gallery img {
   width: 100%;
   height: 190px;
   object-fit: cover;
   display: block;
-  transition: transform .3s ease;
+  transition: transform .18s ease-out;
 }
-.thumb-gallery a:hover img { transform: scale(1.06); }
+.thumb-gallery a:hover img,
+.thumb-gallery a:focus-visible img { transform: scale(1.045); }
 .thumb-gallery .thumb-caption {
   position: absolute;
   inset: auto 0 0 0;
@@ -514,11 +523,26 @@ section { position: relative; }
   color: var(--text);
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 100%);
   opacity: 0;
-  transform: translateY(6px);
-  transition: opacity .2s ease, transform .2s ease;
+  transform: translateY(4px);
+  transition: opacity .12s ease-out, transform .12s ease-out;
 }
 .thumb-gallery a:hover .thumb-caption,
-.thumb-gallery a:focus .thumb-caption { opacity: 1; transform: translateY(0); }
+.thumb-gallery a:focus-visible .thumb-caption { opacity: 1; transform: translateY(0); }
+
+/* Groups a gallery's images by subject (e.g. one car model per group)
+   instead of one flat wall — a small label per cluster reads as
+   curated rather than a padded dump of near-duplicate shots. */
+.gallery-group { margin-bottom: 22px; }
+.gallery-group:last-child { margin-bottom: 0; }
+.gallery-group-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 0 0 10px;
+}
+.gallery-group .thumb-gallery { margin: 0; }
 
 /* ------------------------------ Contact / Footer ------------------------------ */
 .contact-inner { text-align: center; max-width: 640px; margin: 0 auto; }
