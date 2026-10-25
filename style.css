@@ -387,6 +387,7 @@ section { position: relative; }
   align-items: flex-end;
   padding: 14px 16px;
 }
+a.card-media { text-decoration: none; color: inherit; cursor: zoom-in; }
 .card-tag {
   font-size: 10px;
   font-weight: 700;
